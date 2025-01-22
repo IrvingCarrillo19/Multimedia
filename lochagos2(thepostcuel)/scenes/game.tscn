@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkn2pgermjxhr"]
+
+[ext_resource type="PackedScene" uid="uid://d06o0quw1dv2j" path="res://scenes/mayoneso.tscn" id="1_11i88"]
+[ext_resource type="Texture2D" uid="uid://chk03bcmdvqe1" path="res://assets/Sprites/tileset.png" id="1_vcxax"]
+[ext_resource type="PackedScene" uid="uid://c072fj7s3rrj1" path="res://scenes/player.tscn" id="2_544em"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4s4h"]
+texture = ExtResource("1_vcxax")
+2:1/size_in_atlas = Vector2i(7, 6)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -40, 48, -36, 40, 0, 4, 28, -36, -4, -44, -20)
+11:3/size_in_atlas = Vector2i(9, 7)
+11:3/0 = 0
+12:11/size_in_atlas = Vector2i(3, 3)
+12:11/0 = 0
+12:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.5, -10.75, 24, -10.25, 23.5, 23.75, -24.5, 23.25)
+16:11/size_in_atlas = Vector2i(2, 3)
+16:11/0 = 0
+2:11/size_in_atlas = Vector2i(6, 7)
+2:11/0 = 0
+2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48.0833, -41.7193, 51.6568, -42.2074, 47.877, 56.0665, -50.3968, 54.8066)
+9:15/size_in_atlas = Vector2i(2, 2)
+9:15/0 = 0
+9:11/size_in_atlas = Vector2i(2, 3)
+9:11/0 = 0
+3:7/size_in_atlas = Vector2i(3, 3)
+3:7/0 = 0
+32:11/size_in_atlas = Vector2i(3, 6)
+32:11/0 = 0
+20:14/size_in_atlas = Vector2i(2, 3)
+20:14/0 = 0
+12:15/size_in_atlas = Vector2i(2, 4)
+12:15/0 = 0
+9:6/size_in_atlas = Vector2i(2, 4)
+9:6/0 = 0
+25:2/size_in_atlas = Vector2i(1, 7)
+25:2/0 = 0
+20:2/size_in_atlas = Vector2i(4, 7)
+20:2/0 = 0
+27:2/size_in_atlas = Vector2i(4, 7)
+27:2/0 = 0
+27:10/size_in_atlas = Vector2i(2, 3)
+27:10/0 = 0
+30:11/size_in_atlas = Vector2i(1, 2)
+30:11/0 = 0
+24:11/size_in_atlas = Vector2i(2, 2)
+24:11/0 = 0
+22:11/size_in_atlas = Vector2i(1, 2)
+22:11/0 = 0
+19:11/size_in_atlas = Vector2i(2, 2)
+19:11/0 = 0
+19:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4, 16, -4, 16, 16, -16, 16)
+23:14/size_in_atlas = Vector2i(2, 3)
+23:14/0 = 0
+26:14/size_in_atlas = Vector2i(2, 3)
+26:14/0 = 0
+29:15/size_in_atlas = Vector2i(2, 3)
+29:15/0 = 0
+37:3/size_in_atlas = Vector2i(4, 3)
+37:3/0 = 0
+33:3/size_in_atlas = Vector2i(3, 3)
+33:3/0 = 0
+34:6/size_in_atlas = Vector2i(4, 3)
+34:6/0 = 0
+36:15/size_in_atlas = Vector2i(4, 3)
+36:15/0 = 0
+41:15/size_in_atlas = Vector2i(3, 3)
+41:15/0 = 0
+36:11/size_in_atlas = Vector2i(3, 3)
+36:11/0 = 0
+40:11/size_in_atlas = Vector2i(2, 3)
+40:11/0 = 0
+43:11/size_in_atlas = Vector2i(3, 3)
+43:11/0 = 0
+43:3/size_in_atlas = Vector2i(3, 3)
+43:3/0 = 0
+42:7/0 = 0
+44:7/size_in_atlas = Vector2i(2, 2)
+44:7/0 = 0
+47:3/size_in_atlas = Vector2i(2, 2)
+47:3/0 = 0
+48:6/size_in_atlas = Vector2i(2, 2)
+48:6/0 = 0
+46:9/size_in_atlas = Vector2i(3, 2)
+46:9/0 = 0
+47:12/size_in_atlas = Vector2i(6, 7)
+47:12/0 = 0
+51:6/size_in_atlas = Vector2i(2, 2)
+51:6/0 = 0
+52:3/size_in_atlas = Vector2i(2, 2)
+52:3/0 = 0
+53:9/size_in_atlas = Vector2i(3, 2)
+53:9/0 = 0
+15:15/size_in_atlas = Vector2i(4, 2)
+15:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27x7t"]
+texture = ExtResource("1_vcxax")
+5:16/size_in_atlas = Vector2i(3, 2)
+5:16/0 = 0
+3:13/size_in_atlas = Vector2i(2, 2)
+3:13/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_flt7t"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_p4s4h")
+sources/3 = SubResource("TileSetAtlasSource_27x7t")
+
+[node name="Game" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_flt7t")
+format = 2
+layer_0/tile_data = PackedInt32Array(131081, 786433, 11, 196602, 786433, 11, 327670, 131073, 11, 327674, 327683, 16, 458746, 327683, 16, 458749, 983041, 15, 327677, 327683, 16, 262144, 327683, 16, 393216, 327683, 16, 262147, 327683, 16, 262150, 327683, 16, 393219, 327683, 16, 393222, 327683, 16, 262153, 327683, 16, 393225, 327683, 16, 196605, 786433, 11, 131073, 786433, 11, 131076, 786433, 11, 131078, 786433, 11, 196607, 786433, 11, 131084, 786433, 11, 131087, 786433, 11, 131088, 786433, 11, 131089, 786433, 11, 131090, 786433, 11, 131091, 786433, 11, 131092, 786433, 11, 262156, 327683, 16, 262157, 327683, 16, 262158, 327683, 16, 262159, 327683, 16, 327695, 327683, 16, 327696, 327683, 16, 327697, 327683, 16, 262161, 327683, 16, 262162, 327683, 16, 262163, 327683, 16, 262164, 327683, 16, 327700, 327683, 16, 327699, 327683, 16, 327698, 327683, 16, 327694, 327683, 16, 327693, 327683, 16, 327692, 327683, 16, 393228, 327683, 16, 393229, 327683, 16, 393230, 327683, 16, 393235, 327683, 16, 393234, 327683, 16, 393233, 327683, 16, 393236, 327683, 16, -65543, 720897, 3, 18, 2228225, 6)
+
+[node name="Mayoneso" parent="." instance=ExtResource("1_11i88")]
+position = Vector2(273, 55)
+
+[node name="player" parent="." instance=ExtResource("2_544em")]
+position = Vector2(33, 23)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(38, 5)
+scale = Vector2(0.679743, 0.78017)
+zoom = Vector2(3.5, 3.5)
