@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkn2pgermjxhr"]
+[gd_scene load_steps=9 format=3 uid="uid://bkn2pgermjxhr"]
 
 [ext_resource type="PackedScene" uid="uid://d06o0quw1dv2j" path="res://scenes/mayoneso.tscn" id="1_11i88"]
 [ext_resource type="Texture2D" uid="uid://chk03bcmdvqe1" path="res://assets/Sprites/tileset.png" id="1_vcxax"]
 [ext_resource type="PackedScene" uid="uid://c072fj7s3rrj1" path="res://scenes/player.tscn" id="2_544em"]
+[ext_resource type="PackedScene" uid="uid://d1du0h6bwcdc0" path="res://scenes/killzone.tscn" id="4_tajp4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4s4h"]
 texture = ExtResource("1_vcxax")
@@ -106,6 +107,9 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_p4s4h")
 sources/3 = SubResource("TileSetAtlasSource_27x7t")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o4aa2"]
+distance = -149.0
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -114,12 +118,19 @@ format = 2
 layer_0/tile_data = PackedInt32Array(131081, 786433, 11, 196602, 786433, 11, 327670, 131073, 11, 327674, 327683, 16, 458746, 327683, 16, 458749, 983041, 15, 327677, 327683, 16, 262144, 327683, 16, 393216, 327683, 16, 262147, 327683, 16, 262150, 327683, 16, 393219, 327683, 16, 393222, 327683, 16, 262153, 327683, 16, 393225, 327683, 16, 196605, 786433, 11, 131073, 786433, 11, 131076, 786433, 11, 131078, 786433, 11, 196607, 786433, 11, 131084, 786433, 11, 131087, 786433, 11, 131088, 786433, 11, 131089, 786433, 11, 131090, 786433, 11, 131091, 786433, 11, 131092, 786433, 11, 262156, 327683, 16, 262157, 327683, 16, 262158, 327683, 16, 262159, 327683, 16, 327695, 327683, 16, 327696, 327683, 16, 327697, 327683, 16, 262161, 327683, 16, 262162, 327683, 16, 262163, 327683, 16, 262164, 327683, 16, 327700, 327683, 16, 327699, 327683, 16, 327698, 327683, 16, 327694, 327683, 16, 327693, 327683, 16, 327692, 327683, 16, 393228, 327683, 16, 393229, 327683, 16, 393230, 327683, 16, 393235, 327683, 16, 393234, 327683, 16, 393233, 327683, 16, 393236, 327683, 16, -65543, 720897, 3, 18, 2228225, 6)
 
 [node name="Mayoneso" parent="." instance=ExtResource("1_11i88")]
-position = Vector2(273, 55)
+position = Vector2(274, 31)
 
 [node name="player" parent="." instance=ExtResource("2_544em")]
 position = Vector2(33, 23)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(38, 5)
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(5, -18)
 scale = Vector2(0.679743, 0.78017)
 zoom = Vector2(3.5, 3.5)
+limit_bottom = 127
+limit_smoothed = true
+
+[node name="Killzone" parent="." instance=ExtResource("4_tajp4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_o4aa2")

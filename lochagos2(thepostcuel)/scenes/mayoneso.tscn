@@ -1,6 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d06o0quw1dv2j"]
+[gd_scene load_steps=17 format=3 uid="uid://d06o0quw1dv2j"]
 
 [ext_resource type="Texture2D" uid="uid://2egua5ff7yep" path="res://assets/Sprites/atlas.png" id="1_5skjl"]
+[ext_resource type="Script" path="res://scripts/mayoneso.gd" id="1_uohos"]
+[ext_resource type="PackedScene" uid="uid://d1du0h6bwcdc0" path="res://scenes/killzone.tscn" id="2_xnlot"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x205f"]
 atlas = ExtResource("1_5skjl")
@@ -87,9 +89,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1150q"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3n4so"]
+radius = 8.0
 
-[node name="Mayoneso" type="CharacterBody2D"]
+[node name="Mayoneso" type="Node2D"]
+script = ExtResource("1_uohos")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -21)
@@ -97,9 +101,13 @@ scale = Vector2(1.00991, 0.890238)
 sprite_frames = SubResource("SpriteFrames_cwmkr")
 animation = &"Rise"
 autoplay = "Rise"
-frame = 10
-frame_progress = 0.17145
+frame = 8
+frame_progress = 0.96402
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_1150q")
+[node name="Killzone" parent="." instance=ExtResource("2_xnlot")]
+scale = Vector2(1, 1)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-2, -7)
+shape = SubResource("CircleShape2D_3n4so")
